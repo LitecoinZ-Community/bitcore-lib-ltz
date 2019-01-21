@@ -54,6 +54,7 @@
     }
   ],
   "dependencies": {
+    "blake2b": "https://github.com/BitGo/blake2b#6268e6dd678661e0acc4359e9171b97eb1ebf8ac",
     "bn.js": "=4.11.8",
     "bs58": "=4.0.1",
     "buffer-compare": "=1.1.1",
