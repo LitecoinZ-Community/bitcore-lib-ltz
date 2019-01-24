@@ -51,14 +51,14 @@ describe('URI', function() {
     URI.isValid('litecoinz:1DP69gMMvSuYhbnxsi4EJEFufUAbDrEQfj?amount=1.2&req-other=param',
                 ['req-other']).should.equal(true);
     URI.isValid('litecoinz:mmrqEBJxUCf42vdb3oozZtyz5mKr3Vb2Em?amount=0.1&' +
-                'r=https%3A%2F%2Ftest.bitpay.com%2Fi%2F6DKgf8cnJC388irbXk5hHu').should.equal(true);
+                'r=https%3A%2F%2Ftest-pay.litecoinz.org%2Fi%2F6DKgf8cnJC388irbXk5hHu').should.equal(true);
 
     URI.isValid('litecoinz:').should.equal(false);
     URI.isValid('litecoinz:badUri').should.equal(false);
     URI.isValid('litecoinz:1DP69gMMvSuYhbnxsi4EJEFufUAbDrEQfk?amount=bad').should.equal(false);
     URI.isValid('litecoinz:1DP69gMMvSuYhbnxsi4EJEFufUAbDrEQfk?amount=1.2&req-other=param')
                 .should.equal(false);
-    URI.isValid('litecoinz:?r=https%3A%2F%2Ftest.bitpay.com%2Fi%2F6DKgf8cnJC388irbXk5hHu')
+    URI.isValid('litecoinz:?r=https%3A%2F%2Ftest-pay.litecoinz.org%2Fi%2F6DKgf8cnJC388irbXk5hHu')
                 .should.equal(false);
   });
 
@@ -73,7 +73,7 @@ describe('URI', function() {
     uri.should.be.instanceof(URI);
   });
 
-  describe('instantiation from bitcoin uri', function() {
+  describe('instantiation from litecoinz uri', function() {
     /* jshint maxstatements: 25 */
     var uri;
 
@@ -224,7 +224,7 @@ describe('URI', function() {
   });
 
   it('should be case insensitive to protocol', function() {
-    var uri1 = new URI('litecoinz:1DP69gMMvSuYhbnxsi4EJEFufUAbDrEQfj');
+    var uri1 = new URI('LiTeCoInZ:1DP69gMMvSuYhbnxsi4EJEFufUAbDrEQfj');
     var uri2 = new URI('litecoinz:1DP69gMMvSuYhbnxsi4EJEFufUAbDrEQfj');
 
     uri1.address.toString().should.equal(uri2.address.toString());
@@ -232,7 +232,7 @@ describe('URI', function() {
 
   it('writes correctly the "r" parameter on string serialization', function() {
     var originalString = 'litecoinz:mmrqEBJxUCf42vdb3oozZtyz5mKr3Vb2Em?amount=0.1&' +
-                         'r=https%3A%2F%2Ftest.bitpay.com%2Fi%2F6DKgf8cnJC388irbXk5hHu';
+                         'r=https%3A%2F%2Ftest-pay.litecoinz.org%2Fi%2F6DKgf8cnJC388irbXk5hHu';
     var uri = new URI(originalString);
     uri.toString().should.equal(originalString);
   });

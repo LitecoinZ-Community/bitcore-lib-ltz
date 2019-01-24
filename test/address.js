@@ -12,8 +12,8 @@ var Address = bitcore.Address;
 var Script = bitcore.Script;
 var Networks = bitcore.Networks;
 
-var validbase58 = require('./data/bitcoind/base58_keys_valid.json');
-var invalidbase58 = require('./data/bitcoind/base58_keys_invalid.json');
+var validbase58 = require('./data/litecoinzd/base58_keys_valid.json');
+var invalidbase58 = require('./data/litecoinzd/base58_keys_invalid.json');
 
 describe('Address', function() {
 
@@ -39,7 +39,7 @@ describe('Address', function() {
     }).should.throw('Third argument must be "pubkeyhash" or "scripthash"');
   });
 
-  describe('bitcoind compliance', function() {
+  describe('litecoinzd compliance', function() {
     validbase58.map(function(d) {
       if (!d[2].isPrivkey) {
         it('should describe address ' + d[0] + ' as valid', function() {
@@ -549,6 +549,11 @@ describe('Address', function() {
     it('works on testnet also', function() {
       var address = Address.createMultisig(publics, 2, Networks.testnet);
       address.toString().should.equal('2N7T3TAetJrSCruQ39aNrJvYLhG1LJosujf');
+    });
+
+    it('can create an address from a set of public keys with a nested witness program', function() {
+      var address = Address.createMultisig(publics, 2, Networks.livenet, true);
+      address.toString().should.equal('3PpK1bBqUmPK3Q6QPSUK7BQSZ1DMWL6aes');
     });
 
     it('can also be created by Address.createMultisig', function() {

@@ -9,30 +9,41 @@ var BlockHeader = bitcore.BlockHeader;
 var fs = require('fs');
 var should = require('chai').should();
 
-// https://test-insight.bitpay.com/block/000000000b99b16390660d79fcc138d2ad0c89a0d044c4201a02bdf1f61ffa11
+// https://test-insight.litecoinz.org/block/000000000b99b16390660d79fcc138d2ad0c89a0d044c4201a02bdf1f61ffa11
 var dataRawBlockBuffer = fs.readFileSync('test/data/blk86756-testnet.dat');
 var dataRawBlockBinary = fs.readFileSync('test/data/blk86756-testnet.dat', 'binary');
 var dataRawId = '000000000b99b16390660d79fcc138d2ad0c89a0d044c4201a02bdf1f61ffa11';
 var data = require('../data/blk86756-testnet');
 
 describe('BlockHeader', function() {
+  var version;
+  var prevblockidbuf;
+  var merklerootbuf;
+  var time;
+  var bits;
+  var nonce;
+  var bh;
+  var bhhex;
+  var bhbuf;
 
-  var version = data.version;
-  var prevblockidbuf = new Buffer(data.prevblockidhex, 'hex');
-  var merklerootbuf = new Buffer(data.merkleroothex, 'hex');
-  var time = data.time;
-  var bits = data.bits;
-  var nonce = data.nonce;
-  var bh = new BlockHeader({
-    version: version,
-    prevHash: prevblockidbuf,
-    merkleRoot: merklerootbuf,
-    time: time,
-    bits: bits,
-    nonce: nonce
+  before(function () {
+    version = data.version;
+    prevblockidbuf = new Buffer(data.prevblockidhex, 'hex');
+    merklerootbuf = new Buffer(data.merkleroothex, 'hex');
+    time = data.time;
+    bits = data.bits;
+    nonce = data.nonce;
+    bh = new BlockHeader({
+      version: version,
+      prevHash: prevblockidbuf,
+      merkleRoot: merklerootbuf,
+      time: time,
+      bits: bits,
+      nonce: nonce
+    });
+    bhhex = data.blockheaderhex;
+    bhbuf = new Buffer(bhhex, 'hex');
   });
-  var bhhex = data.blockheaderhex;
-  var bhbuf = new Buffer(bhhex, 'hex');
 
   it('should make a new blockheader', function() {
     BlockHeader(bhbuf).toBuffer().toString('hex').should.equal(bhhex);

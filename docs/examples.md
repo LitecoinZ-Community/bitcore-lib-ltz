@@ -9,7 +9,7 @@ var address = privateKey.toAddress();
 
 ## Generate a address from a SHA256 hash
 ```javascript
-var value = new Buffer('correct horse battery staple');
+var value = Buffer.from('correct horse battery staple');
 var hash = bitcore.crypto.Hash.sha256(value);
 var bn = bitcore.crypto.BN.fromBuffer(hash);
 
@@ -40,7 +40,7 @@ var transaction = new bitcore.Transaction()
   .sign(privateKey);
 ```
 
-## Sign a Bitcoin message
+## Sign a LitecoinZ message
 ```javascript
 var Message = require('bitcore-message');
 
@@ -50,7 +50,7 @@ var message = new Message('This is an example of a signed message.');
 var signature = message.sign(privateKey);
 ```
 
-## Verify a Bitcoin message
+## Verify a LitecoinZ message
 ```javascript
 var Message = require('bitcore-message');
 

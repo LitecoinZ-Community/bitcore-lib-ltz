@@ -8,8 +8,8 @@ var Signature = bitcore.crypto.Signature;
 var JSUtil = bitcore.util.js;
 var Interpreter = bitcore.Script.Interpreter;
 
-var sig_canonical = require('../data/bitcoind/sig_canonical');
-var sig_noncanonical = require('../data/bitcoind/sig_noncanonical');
+var sig_canonical = require('../data/litecoinzd/sig_canonical');
+var sig_noncanonical = require('../data/litecoinzd/sig_noncanonical');
 
 describe('Signature', function() {
 
@@ -251,7 +251,7 @@ describe('Signature', function() {
     });
 
 
-    describe('bitcoind fixtures', function() {
+    describe('litecoinzd fixtures', function() {
       var test_sigs = function(set, expected) {
         var i = 0;
         set.forEach(function(vector) {
@@ -282,22 +282,22 @@ describe('Signature', function() {
       var sig = new Signature({
         r: r,
         s: new BN('7FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF5D576E7357A4501DDFE92F46681B20A1', 'hex')
-      });            
+      });
       sig.hasLowS().should.equal(false);
 
       var sig2 = new Signature({
         r: r,
         s: new BN('7FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF5D576E7357A4501DDFE92F46681B20A0', 'hex')
-      });      
+      });
       sig2.hasLowS().should.equal(true);
 
       var sig3 = new Signature({
         r: r,
         s: new BN(1)
-      });      
+      });
       sig3.hasLowS().should.equal(true);
 
-      var sig4 = new Signature({        
+      var sig4 = new Signature({
         r: r,
         s: new BN(0)
       });

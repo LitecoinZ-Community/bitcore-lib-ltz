@@ -1,15 +1,11 @@
 Bitcore Library
 =======
 
-[![NPM Package](https://img.shields.io/npm/v/bitcore-lib-ltz.svg?style=flat-square)](https://www.npmjs.org/package/bitcore-lib-ltz)
-[![Build Status](https://img.shields.io/travis/bitpay/bitcore-lib-ltz.svg?branch=master&style=flat-square)](https://travis-ci.org/bitpay/bitcore-lib-ltz)
-[![Coverage Status](https://img.shields.io/coveralls/bitpay/bitcore-lib-ltz.svg?style=flat-square)](https://coveralls.io/r/bitpay/bitcore-lib-ltz)
-
-A pure and powerful JavaScript Bitcoin library.
+A pure and powerful JavaScript LitecoinZ library.
 
 ## Principles
 
-Bitcoin is a powerful new peer-to-peer platform for the next generation of financial technology. The decentralized nature of the Bitcoin network allows for highly resilient bitcoin infrastructure, and the developer community needs reliable, open-source tools to implement bitcoin apps and services.
+LitecoinZ is a powerful new peer-to-peer platform for the next generation of financial technology. The decentralized nature of the LitecoinZ network allows for highly resilient litecoinz infrastructure, and the developer community needs reliable, open-source tools to implement litecoinz apps and services.
 
 ## Get Started
 
@@ -36,8 +32,8 @@ To get community assistance and ask for help with implementation questions, plea
 * [Generate a address from a SHA256 hash](https://github.com/LitecoinZ-Community/bitcore-lib-ltz/blob/master/docs/examples.md#generate-a-address-from-a-sha256-hash)
 * [Import an address via WIF](https://github.com/LitecoinZ-Community/bitcore-lib-ltz/blob/master/docs/examples.md#import-an-address-via-wif)
 * [Create a Transaction](https://github.com/LitecoinZ-Community/bitcore-lib-ltz/blob/master/docs/examples.md#create-a-transaction)
-* [Sign a Bitcoin message](https://github.com/LitecoinZ-Community/bitcore-lib-ltz/blob/master/docs/examples.md#sign-a-bitcoin-message)
-* [Verify a Bitcoin message](https://github.com/LitecoinZ-Community/bitcore-lib-ltz/blob/master/docs/examples.md#verify-a-bitcoin-message)
+* [Sign a LitecoinZ message](https://github.com/LitecoinZ-Community/bitcore-lib-ltz/blob/master/docs/examples.md#sign-a-bitcoin-message)
+* [Verify a LitecoinZ message](https://github.com/LitecoinZ-Community/bitcore-lib-ltz/blob/master/docs/examples.md#verify-a-bitcoin-message)
 * [Create an OP RETURN transaction](https://github.com/LitecoinZ-Community/bitcore-lib-ltz/blob/master/docs/examples.md#create-an-op-return-transaction)
 * [Create a 2-of-3 multisig P2SH address](https://github.com/LitecoinZ-Community/bitcore-lib-ltz/blob/master/docs/examples.md#create-a-2-of-3-multisig-p2sh-address)
 * [Spend from a 2-of-2 multisig P2SH address](https://github.com/LitecoinZ-Community/bitcore-lib-ltz/blob/master/docs/examples.md#spend-from-a-2-of-2-multisig-p2sh-address)
@@ -62,6 +58,8 @@ gulp browser
 ```
 
 This will generate files named `bitcore-lib-ltz.js` and `bitcore-lib-ltz.min.js`.
+
+You can also use our pre-generated files, provided for each release along with a PGP signature by one of the project's maintainers. To get them, checkout a release commit (for example, https://github.com/LitecoinZ-Community/bitcore-lib-ltz/commit/e33b6e3ba6a1e5830a079e02d949fce69ea33546 for v0.12.6).
 
 To verify signatures, use the following PGP keys:
 - @braydonf: https://pgp.mit.edu/pks/lookup?op=get&search=0x9BBF07CAC07A276D `D909 EFE6 70B5 F6CC 89A3 607A 9BBF 07CA C07A 276D`

@@ -11,8 +11,8 @@ var PrivateKey = bitcore.PrivateKey;
 var Networks = bitcore.Networks;
 var Base58Check = bitcore.encoding.Base58Check;
 
-var validbase58 = require('./data/bitcoind/base58_keys_valid.json');
-var invalidbase58 = require('./data/bitcoind/base58_keys_invalid.json');
+var validbase58 = require('./data/litecoinzd/base58_keys_valid.json');
+var invalidbase58 = require('./data/litecoinzd/base58_keys_invalid.json');
 
 describe('PrivateKey', function() {
   var hex = '96c132224121b509b7d0a16245e957d9192609c5637c6228311287b1be21627a';
@@ -88,7 +88,7 @@ describe('PrivateKey', function() {
     should.exist(a.bn);
   });
 
-  describe('bitcoind compliance', function() {
+  describe('litecoinzd compliance', function() {
     validbase58.map(function(d){
       if (d[2].isPrivkey) {
         it('should instantiate WIF private key ' + d[0] + ' with correct properties', function() {
@@ -254,15 +254,15 @@ describe('PrivateKey', function() {
 
   describe('#toAddress', function() {
     it('should output this known livenet address correctly', function() {
-      var privkey = PrivateKey.fromWIF('L4aBHtagKsLKfFj2DapBee3SY7ZY6oduo7WYst4c49MdzZ6YhEY3');
+      var privkey = PrivateKey.fromWIF('L3T1s1TYP9oyhHpXgkyLoJFGniEgkv2Jhi138d7R2yJ9F4QdDU2m');
       var address = privkey.toAddress();
-      address.toString().should.equal('t1TWzuP4pPGCpBHJ2EoHzRb1mAbn4kEhN5S');
+      address.toString().should.equal('1A6ut1tWnUq1SEQLMr4ttDh24wcbJ5o9TT');
     });
 
     it('should output this known testnet address correctly', function() {
       var privkey = PrivateKey.fromWIF('cR4qogdN9UxLZJXCNFNwDRRZNeLRWuds9TTSuLNweFVjiaE4gPaq');
       var address = privkey.toAddress();
-      address.toString().should.equal('tmNiXpWP8BFzU1B94JtAHU2Gahfme72EQW7');
+      address.toString().should.equal('mtX8nPZZdJ8d3QNLRJ1oJTiEi26Sj6LQXS');
     });
 
     it('creates network specific address', function() {
@@ -445,13 +445,13 @@ describe('PrivateKey', function() {
   });
 
   it('creates an address as expected from WIF, livenet', function() {
-    var privkey = new PrivateKey('L1E4989pjsga7CAUF3cRRbbPsMwrSAnXsrzctZdQFmG4KRtXoe4i');
-    privkey.publicKey.toAddress().toString().should.equal('t1QZg1VyL6muEDaYpeVgfz91sC4q7r6ePMh');
+    var privkey = new PrivateKey('5J2NYGstJg7aJQEqNwYp4enG5BSfFdKXVTtBLvHicnRGD5kjxi6');
+    privkey.publicKey.toAddress().toString().should.equal('135bwugFCmhmNU3SeCsJeTqvo5ViymgwZ9');
   });
 
   it('creates an address as expected from WIF, testnet', function() {
     var privkey = new PrivateKey('92VYMmwFLXRwXn5688edGxYYgMFsc3fUXYhGp17WocQhU6zG1kd');
-    privkey.publicKey.toAddress().toString().should.equal('tmHuZxTJVZ4hXpiTyAPA8PM5dBgcakaLmge');
+    privkey.publicKey.toAddress().toString().should.equal('moiAvLUw16qgrwhFGo1eDnXHC2wPMYiv7Y');
   });
 
 });

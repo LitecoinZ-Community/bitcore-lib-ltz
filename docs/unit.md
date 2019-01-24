@@ -1,5 +1,5 @@
 # Unit
-Unit is a utility for handling and converting bitcoin units. We strongly recommend to always use satoshis to represent amount inside your application and only convert them to other units in the front-end.
+Unit is a utility for handling and converting litecoinz units. We strongly recommend to always use satoshis to represent amount inside your application and only convert them to other units in the front-end.
 
 To understand the need of using the `Unit` class when dealing with unit conversions, see this example:
 
@@ -13,7 +13,7 @@ To understand the need of using the `Unit` class when dealing with unit conversi
 ```
 
 ## Supported units
-The supported units are LTZ, mLTZ, bits (micro LTZs, uLTZ) and satoshis. The codes for each unit can be found as members of the Unit class.
+The supported units are LTZ, mLTZ, bits (micro LTZ, uLTZ) and satoshis. The codes for each unit can be found as members of the Unit class.
 
 ```javascript
 var ltzCode = Unit.LTZ;
